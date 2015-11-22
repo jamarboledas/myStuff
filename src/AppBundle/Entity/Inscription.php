@@ -1,21 +1,17 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: juanan
- * Date: 21/11/15
- * Time: 16:03
- */
 
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+
+
 /**
- * Class City
+ * Class Inscription
  * @package AppBundle\Entity
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="AppBundle\Form\Repository\CityRepository")
+ * @ORM\Entity()
  */
-class City
+class Inscription
 {
     /**
      * @var int
@@ -26,15 +22,20 @@ class City
     private $id;
 
     /**
-     * @var string
-     * @ORM\Column(name="name", type="string")
-     */
-    private $name;
+    * @ORM\ManyToOne(targetEntity="Country")
+    */
+    private $country;
 
     /**
-    * @ORM\ManyToOne(targetEntity="Province")
-    */
+     * @ORM\ManyToOne(targetEntity="Province")
+     */
     private $province;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="City")
+     */
+    private $city;
+
 
     /**
      * Get id
@@ -47,27 +48,27 @@ class City
     }
 
     /**
-     * Set name
+     * Set country
      *
-     * @param string $name
+     * @param \AppBundle\Entity\Country $country
      *
-     * @return City
+     * @return Inscription
      */
-    public function setName($name)
+    public function setCountry(Country $country = null)
     {
-        $this->name = $name;
+        $this->country = $country;
 
         return $this;
     }
 
     /**
-     * Get name
+     * Get country
      *
-     * @return string
+     * @return \AppBundle\Entity\Country
      */
-    public function getName()
+    public function getCountry()
     {
-        return $this->name;
+        return $this->country;
     }
 
     /**
@@ -75,7 +76,7 @@ class City
      *
      * @param \AppBundle\Entity\Province $province
      *
-     * @return City
+     * @return Inscription
      */
     public function setProvince(Province $province = null)
     {
@@ -95,12 +96,26 @@ class City
     }
 
     /**
-     * To String.
+     * Set city
      *
-     * @return string
+     * @param \AppBundle\Entity\City $city
+     *
+     * @return Inscription
      */
-    public function __toString()
+    public function setCity(City $city = null)
     {
-        return $this->getName();
+        $this->city = $city;
+
+        return $this;
+    }
+
+    /**
+     * Get city
+     *
+     * @return \AppBundle\Entity\City
+     */
+    public function getCity()
+    {
+        return $this->city;
     }
 }
