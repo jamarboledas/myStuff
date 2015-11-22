@@ -47,6 +47,16 @@ class InscriptionType extends AbstractType
                 },
             ))
 
+            ->add('currentDate', 'date', array(
+                'widget'    =>  'single_text',
+                'format'    =>  'dd-MM-yyyy',
+                'attr'      =>  array(
+                    'class' =>  'form-control input-inline datepicker',
+                    'data-provide'      => 'datepicker',
+                    'data-date-format'  => 'dd-mm-yyyy',
+                )
+            ))
+
             ->add('save', 'submit',
                 array(
                     'label'    => 'Submit',

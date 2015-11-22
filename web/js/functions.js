@@ -15,7 +15,6 @@ var connection_display_field = function(field, id, elements) {
     });
 };
 
-
     (function ($) {
         "use strict";
         $.fn.requestForm = function () {
@@ -43,5 +42,8 @@ var connection_display_field = function(field, id, elements) {
             $("form").requestForm();
             $('#inscription_province').find('option').remove().end();
             $('#inscription_city').find('option').remove().end();
+            $('.datepicker').datepicker({
+                language: 'es'
+            });
         });
 }(jQuery));

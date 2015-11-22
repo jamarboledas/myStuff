@@ -1,16 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div style="margin-left: 40%">
         {{ form_start(form) }}
         {{ form_widget(form) }}
         {{ form_end(form) }}
-    </div>
-
-    {% block javascript %}
-        <script src="{{ asset('js/jquery.min.js') }}"></script>
-        <script src="{{ asset('js/functions.js') }}"></script>
-    {% endblock %}
 {% endblock %}
 
 

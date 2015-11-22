@@ -36,6 +36,31 @@ class Inscription
      */
     private $city;
 
+    /**
+     * @var \DateTime
+     */
+    private $currentDate;
+
+    /**
+     * @return \DateTime
+     */
+    public function getCurrentDate()
+    {
+        return $this->currentDate;
+    }
+
+    /**
+     * @param \DateTime $currentDate
+     *
+     * @return Inscription
+     */
+    public function setCurrentDate($currentDate)
+    {
+        $this->currentDate = $currentDate;
+
+        return $this;
+    }
+
 
     /**
      * Get id
