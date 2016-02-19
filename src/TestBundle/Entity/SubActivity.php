@@ -44,4 +44,101 @@ class SubActivity
     {
         $this->professionals = new ArrayCollection();
     }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return SubActivity
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set activity
+     *
+     * @param \TestBundle\Entity\Activity $activity
+     *
+     * @return SubActivity
+     */
+    public function setActivity(\TestBundle\Entity\Activity $activity = null)
+    {
+        $this->activity = $activity;
+
+        return $this;
+    }
+
+    /**
+     * Get activity
+     *
+     * @return \TestBundle\Entity\Activity
+     */
+    public function getActivity()
+    {
+        return $this->activity;
+    }
+
+    /**
+     * Add professional
+     *
+     * @param \TestBundle\Entity\Professional $professional
+     *
+     * @return SubActivity
+     */
+    public function addProfessional(\TestBundle\Entity\Professional $professional)
+    {
+        $this->professionals[] = $professional;
+
+        return $this;
+    }
+
+    /**
+     * Remove professional
+     *
+     * @param \TestBundle\Entity\Professional $professional
+     */
+    public function removeProfessional(\TestBundle\Entity\Professional $professional)
+    {
+        $this->professionals->removeElement($professional);
+    }
+
+    /**
+     * Get professionals
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getProfessionals()
+    {
+        return $this->professionals;
+    }
+
+    public function __toString()
+    {
+        return $this->getName();
+    }
 }
