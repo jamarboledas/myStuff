@@ -23,9 +23,14 @@ class Activity
     private $id;
 
     /**
-     *   @var string
-     *   @ORM\Column(type="string", nullable=false)
-     *
+     * @var string
+     * @ORM\Column(type="string", nullable=false)
      */
     private $name;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Program")
+     * @ORM\JoinColumn(name="program_id", referencedColumnName="id")
+     */
+    private $program;
 }

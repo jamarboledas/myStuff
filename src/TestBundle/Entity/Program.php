@@ -23,8 +23,8 @@ class Program
     private $id;
 
     /**
-    *   @var string
-    *   @ORM\Column(type="string", nullable=false)
-    */
+     * @var string
+     * @ORM\Column(type="string", nullable=false)
+     */
     private $name;
 }

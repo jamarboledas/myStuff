@@ -2,6 +2,7 @@
 
 namespace TestBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -28,4 +29,15 @@ class Professional
      *   @ORM\Column(type="string", nullable=false)
      */
     private $name;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="SubActivity", inversedBy="professionals")
+     * @ORM\JoinTable(name="subActivities_professionals")
+     */
+    private $subActivities;
+
+    public function __construct()
+    {
+        $this->subActivities = new ArrayCollection();
+    }
 }
